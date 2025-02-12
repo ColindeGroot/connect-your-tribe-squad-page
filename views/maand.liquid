@@ -1,0 +1,24 @@
+{% render 'partials/head.liquid', title: 'Squad page' %}
+{% assign vorigeMaand = huidigeMaand | minus: 1 %}
+{% assign volgendeMaand = huidigeMaand | plus: 1 %}
+
+{% if vorigeMaand > 0 %}
+  <a href="/maand/{{ vorigeMaand }}" class="btn">← {{ maanden[vorigeMaand | minus: 1] }}</a>
+{% endif %}
+
+{% if volgendeMaand < 13 %}
+  <a href="/maand/{{ volgendeMaand }}" class="btn">{{ maanden[volgendeMaand | minus: 1] }} →</a>
+{% endif %}
+
+<h2>Students</h2>
+<ul>
+  {% for person in persons %}
+    <li>
+      <img src="{{person.avatar}}" alt="avatar image">
+      <h3>{{ person.name }}</h3>
+      <p>{{ person.birthdate }}</p>
+      </li>
+  {% endfor %}
+{% comment %} <p>{{ person|json:4   }}</p> {% endcomment %}
+</ul>
+{% comment %} {% render 'partials/foot.liquid', squads: squads %} {% endcomment %}
