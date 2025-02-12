@@ -69,12 +69,13 @@ app.get('/student/:id', async function (request, response) {
 app.get('/maand/:id', async function (request, response) {
   // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
   const huidigeMaand = request.params.id
-  const personDetailResponse = await fetch(`https://fdnd.directus.app/items/person/?fields=name,birthdate,month(birthdate)&sort=month(birthdate)&filter={%22month(birthdate)%22:${huidigeMaand}}`)
+  const personDetailResponse = await fetch(`https://fdnd.directus.app/items/person/?fields=name,birthdate,avatar,month(birthdate)&sort=month(birthdate)&filter={%22month(birthdate)%22:${huidigeMaand}}`)
+
   const personDetailResponseJSON = await personDetailResponse.json()
   console.log(personDetailResponseJSON)
-  response.render('partials/maand.liquid', {person: personDetailResponseJSON.data, squads: squadResponseJSON.data})
-})
+  response.render('maand.liquid', {persons: personDetailResponseJSON.data, squads: squadResponseJSON.data})
 
+})
 
 app.set('port', process.env.PORT || 8000)
 app.listen(app.get('port'), function () {
