@@ -3,7 +3,8 @@
 <h2>Students</h2>
 <ul>
   {% for person in persons %}
-    <li><a href="/student/{{ person.id }}">{{ person.name }}</a></li>
+    <li>{{ person.birth }}</li>
   {% endfor %}
+<p>{{ person|json:4   }}</p>
 </ul>
 {% comment %} {% render 'partials/foot.liquid', squads: squads %} {% endcomment %}
