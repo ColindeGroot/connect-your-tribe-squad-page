@@ -1,9 +1,22 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
 
+<h1>Verjaardagen</h1>
+
+{% assign maanden = "Januari,Februari,Maart,April,Mei,Juni,Juli,Augustus,September,Oktober,November,December" | split: "," %}
+
+<div>
+  {% for maand in (1..12) %}
+    <a href="/maand/{{ maand }}" class="button">
+      {{ maanden[forloop.index0] }} 
+    </a>
+  {% endfor %}
+</div>
+
 <h2>Students</h2>
 <ul>
   {% for person in persons %}
     <li><a href="/student/{{ person.id }}">{{ person.name }}</a></li>
   {% endfor %}
 </ul>
+
 {% comment %} {% render 'partials/foot.liquid', squads: squads %} {% endcomment %}
