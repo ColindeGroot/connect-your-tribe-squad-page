@@ -13,10 +13,24 @@
 </div>
 
 <h2>Students</h2>
-<ul>
+
+<ul class="person-list invisible">
+
   {% for person in persons %}
-    <li><a href="/student/{{ person.id }}">{{ person.name }}</a></li>
+    {% if person.avatar != blank %}
+
+      <li class="person">
+        <a href="/student/{{ person.id }}">
+          <h3>{{ person.name }}</h3>
+          <img src="{{ person.avatar }}" alt="avatar foto">
+          <p>{{ person.birthdate }}</p>
+        </a>
+      </li>
+
+    {% endif %}
   {% endfor %}
+  
 </ul>
 
-{% comment %} {% render 'partials/foot.liquid', squads: squads %} {% endcomment %}
+
+{% render 'partials/foot.liquid', squads: squads %}

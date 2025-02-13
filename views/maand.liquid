@@ -7,11 +7,11 @@
 {% endif %}
 
 {% if volgendeMaand < 13 %}
-  <a href="/maand/{{ volgendeMaand }}" class="btn">{{ maanden[volgendeMaand | minus: 1] }} →</a>
+  <a href="/maand/{{ volgendeMaand }}" class="btn">{{ maanden[volgendeMaand | plus: 1] }} →</a>
 {% endif %}
 
 <h2>Students</h2>
-<ul>
+<ul class="person-list" style="opacity: 1!important;">
   {% for person in persons %}
     <li>
       <img src="{{person.avatar}}" alt="avatar image">
@@ -21,4 +21,4 @@
   {% endfor %}
 {% comment %} <p>{{ person|json:4   }}</p> {% endcomment %}
 </ul>
-{% comment %} {% render 'partials/foot.liquid', squads: squads %} {% endcomment %}
+{% comment %} {% render 'partials/foot.liquid', squads: squads %}  {% endcomment %}
