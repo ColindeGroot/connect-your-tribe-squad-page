@@ -11,14 +11,24 @@
 {% endif %}
 
 <h2>Students</h2>
+
 <ul class="person-list">
-  {% for person in persons %}
-    <li>
-      <img src="{{person.avatar}}" alt="avatar image">
+
+{% for person in persons %}
+{% if person.avatar != blank %}
+
+<li class="person">
+  <a href="/student/{{ person.id }}">
+    <img src="{{ person.avatar }}" alt="avatar foto">
+    <div class="person-details">
       <h3>{{ person.name }}</h3>
       <p>{{ person.birthdate }}</p>
-      </li>
-  {% endfor %}
-{% comment %} <p>{{ person|json:4   }}</p> {% endcomment %}
+    </div>
+  </a>
+</li>
+
+{% endif %}
+{% endfor %}
+
 </ul>
 {% comment %} {% render 'partials/foot.liquid', squads: squads %}  {% endcomment %}

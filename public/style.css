@@ -7,22 +7,22 @@ body {
     font-style: normal;
     box-sizing: border-box;
     background-color: #eee;
-    margin: 0 ;
+    margin: 0;
 }
 
-h1{
-    font-size:1.8em;
+h1 {
+    font-size: 1.8em;
 }
 
-h2{
-    font-size:1.3em;
+h2 {
+    font-size: 1.5em;
 }
 
-h3{
-    font-size:1.1em;
+h3 {
+    font-size: 1.1em;
 }
 
-p{
+p {
     margin: 0;
 }
 
@@ -41,10 +41,16 @@ p{
 
 }
 
-section{
-    margin:10vh 5vw;
+section {
+    padding: 10vh 5vw;
 }
 
+
+/* .students{
+    background-image: url(https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=2600);
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
 
 .person-list {
     padding: 0;
@@ -55,20 +61,22 @@ section{
     gap: 2rem;
 
     li {
-        background-color: #4776a8;
+
+        background: #ffffff33;
+        border-radius: 15px;
+        box-shadow: 0 4px 30px #0000001a;
+        backdrop-filter: blur(5px);
+        border: 1px solid #000;
         border-radius: 16px;
         box-shadow: 0 4px 30px #0000001a;
         backdrop-filter: blur(4.8px);
         border-radius: 5px;
-        color: #eee;
-        translate: (-50px);
-        rotate: (-20deg);
-        opacity: 0;
-        transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        opacity: 1;
+        transform: rotate(0deg) translateX(0);
 
-        a{
+        a {
             text-decoration: none;
-            color: #eee;
+            color: #000;
         }
 
         img {
@@ -77,11 +85,11 @@ section{
             border-radius: 5px 5px 0 0;
         }
 
-        .person-details{
+        .person-details {
             margin: 1em;
-            
+
         }
-        
+
     }
 }
 
@@ -95,14 +103,12 @@ section{
 @keyframes slide-in {
     0% {
         opacity: 0;
-        transform: rotate(30deg) translateX(50px);
+        transform: rotate(-15deg) translateX(-30px);
     }
-
     50% {
         opacity: 1;
-        transform: rotate(10deg) translateX(20px);
+        transform: rotate(5deg) translateX(10px);
     }
-
     100% {
         opacity: 1;
         transform: rotate(0deg) translateX(0);
