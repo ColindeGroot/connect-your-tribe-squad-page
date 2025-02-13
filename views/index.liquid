@@ -1,36 +1,47 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
+{% assign maanden = "Januari,Februari,Maart,April,Mei,Juni,Juli,Augustus,September,Oktober,November,December" |
+split:"," %}
 
-<h1>Verjaardagen</h1>
+<main>
+  <section>
+    <h1>Squadpage</h1>
+    
+    <div class="filter-buttons">
+      <p> filter op geboortemaand en kom erachter met wie nog meer jarig is in dezelfde maand!</p>
+     
+      {% for maand in (1..12) %}
+      <a href="/maand/{{ maand }}" class="button">
+        {{ maanden[forloop.index0] }} 
+      </a>
+      {% endfor %}
+    </div>
 
-{% assign maanden = "Januari,Februari,Maart,April,Mei,Juni,Juli,Augustus,September,Oktober,November,December" | split: "," %}
+  </section>
 
-<div>
-  {% for maand in (1..12) %}
-    <a href="/maand/{{ maand }}" class="button">
-      {{ maanden[forloop.index0] }} 
-    </a>
-  {% endfor %}
-</div>
+  <section class="students">
+    <h2>Students</h2>
 
-<h2>Students</h2>
+    <ul class="person-list invisible">
 
-<ul class="person-list invisible">
-
-  {% for person in persons %}
-    {% if person.avatar != blank %}
+      {% for person in persons %}
+      {% if person.avatar != blank %}
 
       <li class="person">
         <a href="/student/{{ person.id }}">
-          <h3>{{ person.name }}</h3>
           <img src="{{ person.avatar }}" alt="avatar foto">
-          <p>{{ person.birthdate }}</p>
+          <div class="person-details">
+            <h3>{{ person.name }}</h3>
+            <p>{{ person.birthdate }}</p>
+          </div>
         </a>
       </li>
 
-    {% endif %}
-  {% endfor %}
-  
-</ul>
+      {% endif %}
+      {% endfor %}
+
+    </ul>
+  </section>
+</main>
 
 
 {% render 'partials/foot.liquid', squads: squads %}
