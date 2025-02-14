@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 entry.target.classList.add("slide-in");
             }
         });
-    }, { threshold: 0.04 }); // zichtbaar van element dat nodig is om uit te voeren heid 1 = 100%, 0.1 = 10%
+    }, { threshold: 0.35 }); // zichtbaar van element dat nodig is om uit te voeren heid 1 = 100%, 0.1 = 10%
 
     document.querySelectorAll(".students .person-list li").forEach(item => {
         observer.observe(item);
